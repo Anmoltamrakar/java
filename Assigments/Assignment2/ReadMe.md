@@ -24,3 +24,22 @@ protected void finalize( )
 
   The Java run time calls that method whenever it is about to recycle an object of that class. Inside the finalize( ) method, you will specify those actions that must be performed before an object is destroyed. The garbage collector runs periodically, checking for objects that are no longer referenced by any running state or indirectly through other referenced objects. Right before an asset is freed, the Java run time calls the finalize( ) method on the object.
   
+Program::
+
+public class GarbageCollection{
+
+    public static void main(String[] args){
+    
+        GarbageCollection g1 = new GarbageCollection();
+        
+        GarbageCollection g2 = new GarbageCollection();
+
+        g1 = null;
+        
+        System.gc();
+
+        g2 = null;
+        
+        Runtime.getRuntime().gc();
+    }
+}
